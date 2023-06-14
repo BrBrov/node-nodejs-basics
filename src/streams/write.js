@@ -1,5 +1,4 @@
 import * as fs from 'node:fs/promises';
-import readline from 'node:readline/promises';
 
 const fileOut = './src/streams/files/fileToWrite.txt';
 
