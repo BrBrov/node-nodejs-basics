@@ -18,10 +18,10 @@ function createWorker(counter) {
     });
 }
 
-async function* workerGenerator(cpuCount) {
+function* workerGenerator(cpuCount) {
     let startCPUCounter = 10;
     for (let index = 0; index < cpuCount; index++) {
-        yield await createWorker(startCPUCounter);
+        yield createWorker(startCPUCounter);
         startCPUCounter += 1;
     }
 }
