@@ -9,12 +9,12 @@ function WorkerResultObject(status, value) {
 }
 
 function createWorker(counter) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const worker = new Worker('./src/wt/worker.js', { workerData: counter });
 
         worker.on('message', (value) => resolve(new WorkerResultObject('resolved', value)));
 
-        worker.on('error', (e) => reject(new WorkerResultObject('error', null)));
+        worker.on('error', () => resolve(new WorkerResultObject('error', null)));
     });
 }
 
