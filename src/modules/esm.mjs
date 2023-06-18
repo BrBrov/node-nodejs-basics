@@ -17,11 +17,13 @@ export let unknownObject;
 if (random > 0.5) {
     // Experimental, but work //
     // unknownObject = await import('./files/a.json', { assert: { type: "json" } });//
-    unknownObject = createRequire('/files/a.json');
+    const json = createRequire(import.meta.url);
+    unknownObject = json('./files/a.json');
 } else {
     // Experimental, but work //
     // unknownObject = await import('./files/b.json', { assert: { type: "json" } });
-    unknownObject = createRequire('/files/b.json');
+    const json = createRequire(import.meta.url);
+    unknownObject = json('./files/b.json');
 }
 
 console.log(`Release ${release()}`);
@@ -35,7 +37,7 @@ console.log(`Path to current file is ${__filename}`);
 console.log(`Path to current directory is ${__dirname}`);
 
 export const myServer = createServerHttp((_, res) => {
-    res.end('Request accepted');
+    res.end(`Request accepted ${unknownObject}`);
 });
 
 const PORT = 3000;
