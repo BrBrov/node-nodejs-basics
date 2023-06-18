@@ -11,18 +11,16 @@ import './files/c.js';
 import { createRequire } from 'node:module';
 
 const random = Math.random();
-
+const json = createRequire(import.meta.url);
 export let unknownObject;
 
 if (random > 0.5) {
     // Experimental, but work //
-    // unknownObject = await import('./files/a.json', { assert: { type: "json" } });//
-    const json = createRequire(import.meta.url);
+    // unknownObject = await import('./files/a.json', { assert: { type: "json" } });//    
     unknownObject = json('./files/a.json');
 } else {
     // Experimental, but work //
     // unknownObject = await import('./files/b.json', { assert: { type: "json" } });
-    const json = createRequire(import.meta.url);
     unknownObject = json('./files/b.json');
 }
 
