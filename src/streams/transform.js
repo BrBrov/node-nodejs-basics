@@ -8,7 +8,6 @@ class Reverser extends Transform {
         callback(null, str);
     }
 
-    _flush
 }
 
 const transform = async () => {
