@@ -37,6 +37,16 @@ const performCalculations = async () => {
         resultArray.push(value);
     }
 
+    // const promiseArray = [];
+
+    // for (let i = 0; i < cpusCount; i++) {
+    //     promiseArray.push(createWorker(10 + i));
+    // }
+
+    // const result = await Promise.allSettled(promiseArray);
+
+    // const resultArray = result.map((answer) => answer.value);
+
     log(resultArray);
 };
 
